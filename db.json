@@ -1,0 +1,34 @@
+{
+  "flights": [
+    {
+      "id": 1,
+      "airline": "Emirates",
+      "from": "Lahore",
+      "to": "Dubai",
+      "date": "2026-06-20",
+      "price": 450,
+      "seats": 12,
+      "status": "Available"
+    },
+    {
+      "id": 2,
+      "airline": "Qatar Airways",
+      "from": "Karachi",
+      "to": "Doha",
+      "date": "2026-06-22",
+      "price": 390,
+      "seats": 8,
+      "status": "Available"
+    },
+    {
+      "id": 3,
+      "airline": "PIA",
+      "from": "Lahore",
+      "to": "Dubai",
+      "date": "2026-06-20",
+      "price": 140,
+      "seats": 32,
+      "status": "Limited"
+    }
+  ]
+}

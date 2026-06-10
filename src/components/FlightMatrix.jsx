@@ -58,7 +58,7 @@ const FlightMatrix = ({ results }) => {
           <div className='my-8 border-t-2 border-dashed border-slate-300'></div>
 
           <div className='flex flex-col gap-3 text-lg font-bold text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:text-xl'>
-            <div>🧳 {flight.seats} Seats</div>
+            <div>{flight.seats} Seats</div>
 
             <div>
               Price per Person /
