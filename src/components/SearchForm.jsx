@@ -7,7 +7,7 @@ const SearchForm = ({ onSearch }) => {
     date: '',
   });
 
-  console.log('form', form);
+  // console.log('form', form);
 
   const [error, setError] = useState('');
 
