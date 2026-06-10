@@ -1,7 +1,10 @@
 const FlightMatrix = ({ results }) => {
+  if (results.length > 0) {
+    // throw new Error('Testing Error Boundary');
+  }
   if (results.length === 0) {
     return (
-      <div className='mx-auto mt-8 max-w-3xl rounded-[28px] bg-white p-8 text-center shadow-xl'>
+      <div className='mx-auto mt-8 max-w-4xl rounded-[28px] bg-white p-8 text-center shadow-xl'>
         <p className='text-lg font-semibold text-slate-500'>
           No flights found.
         </p>
@@ -10,11 +13,11 @@ const FlightMatrix = ({ results }) => {
   }
 
   return (
-    <div className='mx-auto mt-8 max-w-3xl space-y-6'>
+    <div className='mx-auto mt-8 max-w-4xl space-y-6'>
       {results.map((flight) => (
         <div
           key={flight.id}
-          className='rounded-[34px] bg-white p-6 text-slate-950 shadow-[0_24px_70px_rgba(0,0,0,0.22)] sm:p-9'
+          className='rounded-[34px] bg-white p-5 text-slate-950 shadow-[0_24px_70px_rgba(0,0,0,0.22)] sm:p-9'
         >
           <div className='flex items-center gap-4'>
             <div className='grid h-14 w-14 place-items-center rounded-full bg-red-600 text-2xl text-white'>
@@ -26,12 +29,12 @@ const FlightMatrix = ({ results }) => {
             </h3>
           </div>
 
-          <div className='mt-9 grid grid-cols-1 gap-6 sm:grid-cols-[1fr_1.4fr_1fr] sm:items-center'>
+          <div className='mt-9 grid grid-cols-1 gap-8 text-center sm:grid-cols-[1fr_1.4fr_1fr] sm:items-center sm:text-left'>
             <div>
-              <div className='text-3xl font-black text-slate-950 sm:text-4xl'>
+              <div className='text-2xl font-black text-slate-950 sm:text-4xl'>
                 8:00 AM
               </div>
-              <div className='mt-5 text-2xl font-black text-slate-950 sm:text-3xl'>
+              <div className='mt-5 text-xl font-black text-slate-950 sm:text-3xl break-words'>
                 {flight.from}
               </div>
             </div>
@@ -45,11 +48,11 @@ const FlightMatrix = ({ results }) => {
               <div className='h-[2px] flex-1 bg-slate-200'></div>
             </div>
 
-            <div className='sm:text-right'>
-              <div className='text-3xl font-black text-slate-950 sm:text-4xl'>
+            <div className='text-center sm:text-right'>
+              <div className='text-2xl font-black text-slate-950 sm:text-4xl'>
                 12:25 PM
               </div>
-              <div className='mt-5 text-2xl font-black text-slate-950 sm:text-3xl'>
+              <div className='mt-5 text-xl font-black text-slate-950 sm:text-3xl break-words'>
                 {flight.to}
               </div>
             </div>
@@ -57,7 +60,7 @@ const FlightMatrix = ({ results }) => {
 
           <div className='my-8 border-t-2 border-dashed border-slate-300'></div>
 
-          <div className='flex flex-col gap-3 text-lg font-bold text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:text-xl'>
+          <div className='flex flex-col gap-4 text-center text-base font-bold text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:text-left sm:text-xl'>
             <div>{flight.seats} Seats</div>
 
             <div>
