@@ -45,7 +45,7 @@ const SearchForm = ({ onSearch }) => {
     }
 
     onSearch({
-      form,
+      from,
       to,
       date: form.date,
     });
