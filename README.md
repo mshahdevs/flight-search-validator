@@ -1,16 +1,41 @@
-# React + Vite
+# Robust Flight Search Matrix & API Validator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+A responsive React.js micro frontend for searching flight routes using a mocked REST API. The project includes frontend validation, API error handling, loading states, Error Boundary, and QA testing documentation.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Candidate
 
-## React Compiler
+Muhammad Shah  
+Front-End Developer & QA Engineer Intern
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React.js
+- Tailwind CSS
+- JSON Server
+- Postman
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+- Responsive flight search dashboard
+- Native React state management
+- Empty field validation
+- Same city validation
+- Past date validation
+- Invalid character validation
+- Mock REST API integration
+- Loading state
+- API failure handling
+- Empty result handling
+- React Error Boundary
+- Postman API testing
+- QA testing matrix
+
+## Run Project
+
+### Install Dependencies
+
+```bash
+npm install
+```
