@@ -18,11 +18,21 @@ const SearchForm = ({ onSearch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const from = form.from.trim();
+    const to = form.to.trim();
+    const cityRegex = /^[A-Za-z\s]+$/;
     if (!form.from || !form.to || !form.date) {
       setError('All fields are required.');
       return;
     }
-
+    if (!cityRegex.test(from)) {
+      setError('From city must contain only alphabets.');
+      return;
+    }
+    if (!cityRegex.test(to)) {
+      setError('To city must contain only alphabets.');
+      return;
+    }
     if (form.from.toLowerCase() === form.to.toLowerCase()) {
       setError('From and To cities cannot be same.');
       return;
@@ -34,7 +44,11 @@ const SearchForm = ({ onSearch }) => {
       return;
     }
 
-    onSearch(form);
+    onSearch({
+      form,
+      to,
+      date: form.date,
+    });
   };
 
   return (
