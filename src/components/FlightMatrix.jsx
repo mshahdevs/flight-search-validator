@@ -16,9 +16,7 @@ const getDuration = (dep, arr) =>
         (toMinutes(arr) - toMinutes(dep)) % 60
       }m`
     : '';
-const FlightMatrix = ({ results, searched }) => {
-  if (!searched) return null;
-
+const FlightMatrix = ({ results }) => {
   if (results.length === 0) {
     return (
       <div className='mx-auto mt-8 max-w-4xl rounded-[28px] bg-white p-8 text-center shadow-xl'>
