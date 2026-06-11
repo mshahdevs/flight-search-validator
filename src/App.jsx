@@ -4,6 +4,9 @@ import FlightMatrix from './components/FlightMatrix';
 import Loader from './components/Loader';
 import ErrorBoundary from './components/ErrorBoundary';
 import Footer from './components/Footer';
+import { flights as localFlights } from './data/flights';
+
+const API_URL = 'http://localhost:3001/flights';
 
 const App = () => {
   const [results, setResults] = useState([]);
@@ -11,32 +14,30 @@ const App = () => {
   const [apiError, setApiError] = useState('');
 
   const handleSearch = async (form) => {
+    setLoading(true);
+    setApiError('');
+
+    let data;
     try {
-      setLoading(true);
-      setApiError('');
-
-      const response = await fetch('http://localhost:3001/flights');
-
-      if (!response.ok) {
-        throw new Error('API request failed');
-      }
-      const data = await response.json();
-
-      const filteredFlights = data.filter(
-        (flight) =>
-          flight.from.toLowerCase().trim() === form.from.toLowerCase().trim() &&
-          flight.to.toLowerCase().trim() === form.to.toLowerCase().trim() &&
-          flight.date === form.date,
-      );
-
-      setResults(filteredFlights);
-    } catch (error) {
-      setApiError('Backend API is currently unavailable.');
-      setResults([]);
-    } finally {
-      setLoading(false);
+      const response = await fetch(API_URL);
+      if (!response.ok) throw new Error('API failed');
+      data = await response.json();
+    } catch {
+      setApiError('Could not reach server — showing local data.');
+      data = localFlights;
     }
+
+    const filteredFlights = data.filter(
+      (flight) =>
+        flight.from.toLowerCase().trim() === form.from.toLowerCase().trim() &&
+        flight.to.toLowerCase().trim() === form.to.toLowerCase().trim() &&
+        flight.date === form.date,
+    );
+
+    setResults(filteredFlights);
+    setLoading(false);
   };
+
   return (
     <ErrorBoundary>
       <div className='min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900'>
@@ -45,7 +46,6 @@ const App = () => {
             <h1 className='text-4xl md:text-5xl font-bold text-white'>
               Flight Search Matrix
             </h1>
-
             <p className='text-slate-300 mt-3'>
               Search and validate flight routes instantly
             </p>
@@ -53,7 +53,7 @@ const App = () => {
 
           <SearchForm onSearch={handleSearch} />
           {apiError && (
-            <div className='mx-auto mt-5 max-w-3xl rounded-xl border border-red-500/40 bg-red-500/20 p-4 text-red-200'>
+            <div className='mx-auto mt-5 max-w-3xl rounded-xl border border-yellow-500/40 bg-yellow-500/10 p-4 text-yellow-200'>
               {apiError}
             </div>
           )}
